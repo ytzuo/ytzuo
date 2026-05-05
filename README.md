@@ -9,7 +9,7 @@
 
 ## 我的博客
 
-欢迎来看: [saten.webtite](https://saten.website)
+欢迎来玩: [saten.webtite](https://saten.website)
 
 
 ## 📊 GitHub 数据统计
