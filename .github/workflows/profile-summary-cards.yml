@@ -25,4 +25,16 @@ jobs:
           USERNAME: ytzuo
           BRANCH_NAME: main
           UTC_OFFSET: 8
-          AUTO_PUSH: true
+          AUTO_PUSH: false
+
+      - name: Commit generated cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile-summary-card-output
+          if git diff --cached --quiet; then
+            echo "No generated card changes to commit."
+          else
+            git commit -m "Generate profile summary cards"
+            git push origin HEAD:main
+          fi
