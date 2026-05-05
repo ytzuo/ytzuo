@@ -5,6 +5,10 @@ on:
     - cron: "0 18 * * *"
   workflow_dispatch:
 
+concurrency:
+  group: profile-summary-cards
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
@@ -23,18 +27,28 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}
         with:
           USERNAME: ytzuo
-          BRANCH_NAME: main
+          BRANCH_NAME: profile-summary-cards
           UTC_OFFSET: 8
           AUTO_PUSH: false
 
-      - name: Commit generated cards
+      - name: Keep only github theme cards
         run: |
+          find profile-summary-card-output -mindepth 1 -maxdepth 1 ! -name github ! -name README.md -exec rm -rf {} +
+
+      - name: Publish generated cards
+        run: |
+          set -euo pipefail
+          mkdir -p ../cards-branch/profile-summary-card-output
+          cp -R profile-summary-card-output/github ../cards-branch/profile-summary-card-output/github
+          cp profile-summary-card-output/README.md ../cards-branch/profile-summary-card-output/README.md
+          cd ../cards-branch
+          git init
+          git checkout -b profile-summary-cards
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add profile-summary-card-output
-          if git diff --cached --quiet; then
-            echo "No generated card changes to commit."
-          else
-            git commit -m "Generate profile summary cards"
-            git push origin HEAD:main
-          fi
+          git commit -m "Generate profile summary cards"
+          git remote add origin "https://x-access-token:${SUMMARY_GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push --force origin profile-summary-cards
+        env:
+          SUMMARY_GITHUB_TOKEN: ${{ secrets.SUMMARY_GITHUB_TOKEN }}

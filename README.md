@@ -18,20 +18,20 @@
 
 ### 🧩 贡献概览
 
-![](./profile-summary-card-output/github/0-profile-details.svg)
+![](https://raw.githubusercontent.com/ytzuo/ytzuo/profile-summary-cards/profile-summary-card-output/github/0-profile-details.svg)
 
 ---
 
 ### 💻 语言使用情况
 
-![](./profile-summary-card-output/github/1-repos-per-language.svg)
-![](./profile-summary-card-output/github/2-most-commit-language.svg)
+![](https://raw.githubusercontent.com/ytzuo/ytzuo/profile-summary-cards/profile-summary-card-output/github/1-repos-per-language.svg)
+![](https://raw.githubusercontent.com/ytzuo/ytzuo/profile-summary-cards/profile-summary-card-output/github/2-most-commit-language.svg)
 
 ---
 
 ### 📈 活跃数据
 
-![](./profile-summary-card-output/github/3-stats.svg)
-![](./profile-summary-card-output/github/4-productive-time.svg)
+![](https://raw.githubusercontent.com/ytzuo/ytzuo/profile-summary-cards/profile-summary-card-output/github/3-stats.svg)
+![](https://raw.githubusercontent.com/ytzuo/ytzuo/profile-summary-cards/profile-summary-card-output/github/4-productive-time.svg)
 
 </div>
