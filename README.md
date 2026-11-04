@@ -5,7 +5,7 @@
 - 软件工程本科在读
 - Herald Studio 苦力
 - 后端开发者
-- Kotlin 信徒（暂时）
+- Golang 信徒（已从 Kotlin 信徒转职！）
 
 ## 我的博客
 
